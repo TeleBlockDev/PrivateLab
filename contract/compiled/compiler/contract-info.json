@@ -9,13 +9,6 @@
       "proof": true,
       "arguments": [
         {
-          "name": "hemoglobin",
-          "type": {
-            "type-name": "Uint",
-            "maxval": 65535
-          }
-        },
-        {
           "name": "minimum",
           "type": {
             "type-name": "Uint",
@@ -31,6 +24,15 @@
     }
   ],
   "witnesses": [
+    {
+      "name": "getHemoglobin",
+      "arguments": [
+      ],
+      "result type": {
+        "type-name": "Uint",
+        "maxval": 65535
+      }
+    }
   ],
   "contracts": [
   ],

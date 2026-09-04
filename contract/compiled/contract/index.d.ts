@@ -1,17 +1,16 @@
 import type * as __compactRuntime from '@midnight-ntwrk/compact-runtime';
 
 export type Witnesses<PS> = {
+  getHemoglobin(context: __compactRuntime.WitnessContext<Ledger, PS>): [PS, bigint];
 }
 
 export type ImpureCircuits<PS> = {
   verifyHemoglobin(context: __compactRuntime.CircuitContext<PS>,
-                   hemoglobin_0: bigint,
                    minimum_0: bigint): Promise<__compactRuntime.CircuitResults<PS, []>>;
 }
 
 export type ProvableCircuits<PS> = {
   verifyHemoglobin(context: __compactRuntime.CircuitContext<PS>,
-                   hemoglobin_0: bigint,
                    minimum_0: bigint): Promise<__compactRuntime.CircuitResults<PS, []>>;
 }
 
@@ -20,7 +19,6 @@ export type PureCircuits = {
 
 export type Circuits<PS> = {
   verifyHemoglobin(context: __compactRuntime.CircuitContext<PS>,
-                   hemoglobin_0: bigint,
                    minimum_0: bigint): Promise<__compactRuntime.CircuitResults<PS, []>>;
 }
 

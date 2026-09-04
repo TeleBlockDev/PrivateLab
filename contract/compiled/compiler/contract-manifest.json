@@ -7,52 +7,52 @@
     "type": "directory",
     "contract-info.json": {
       "type": "file",
-      "size": 838,
-      "hash": "9a0daca2af22bba88e968cdae904ed3da68f6714549f2ad44d0f11d487d94764"
+      "size": 849,
+      "hash": "7119794d2cb448fcb7c68f9503bccb3252ee2d35227653495cf03b20be8b5d22"
     }
   },
   "contract": {
     "type": "directory",
     "index.d.ts": {
       "type": "file",
-      "size": 1583,
-      "hash": "bba1ff8a6c0787b1a23f0859906d9bc508ce9fa0faf8076a861198c9afd6be02"
+      "size": 1545,
+      "hash": "b40938fc2d6867c44a3eb104674cbba016ae07e527fee778080874e54c22f894"
     },
     "index.js": {
       "type": "file",
-      "size": 11404,
-      "hash": "e1d80b28e5abbfd07bc7f1e0050e70cffa1237343993f93c0c0a5efd9b09cb6c"
+      "size": 12267,
+      "hash": "ecc5c3643adf77bef6b1e376b10de14c249f8f777ce0173c0c58837c158a1788"
     },
     "index.js.map": {
       "type": "file",
-      "size": 591,
-      "hash": "b1da3216d6187301dd1dc995315faf1c7bacef6f73f819fc8a3166333bbc0cad"
+      "size": 605,
+      "hash": "df9fd32d4e5414bc32f687914dc3435ee25142e4cee954767442b3bbf36c9c00"
     }
   },
   "zkir": {
     "type": "directory",
     "verifyHemoglobin.bzkir": {
       "type": "file",
-      "size": 85,
-      "hash": "c54720f72be126d9c74b1421c66c323b29fdcfc8986d8d0afef79fa1c324fabd"
+      "size": 87,
+      "hash": "0129ca1e03f9bb021c7f257bf4794c429d44a7d358e4437f124a806f7ac85ba8"
     },
     "verifyHemoglobin.zkir": {
       "type": "file",
-      "size": 1182,
-      "hash": "84d7ee352cf1a24bcca134f0b1ed38f6062102332bfead89d3b8b19cb9523992"
+      "size": 1228,
+      "hash": "1db39153c0fb02894235639ebcbcea148e7525f0bfccfc91feee28c9faaeef17"
     }
   },
   "keys": {
     "type": "directory",
     "verifyHemoglobin.prover": {
       "type": "file",
-      "size": 146943,
-      "hash": "e7f9b62b2e3c0ed733b9e4997a951941c6f310b573a7d1f71913863b333af196"
+      "size": 146921,
+      "hash": "fd8772acac144272f6546cf92c8435e44d8ff493a63c21d9466db420566ee6ce"
     },
     "verifyHemoglobin.verifier": {
       "type": "file",
       "size": 1351,
-      "hash": "3d99c1765a4ee07f6617684fcc4c74ed2d88e1dff8ae92c5507ac8d8b1752ad4"
+      "hash": "78ef6e69540b47e3a255ba08519a0422738b24d2352075106bc318dd74135591"
     }
   }
 }

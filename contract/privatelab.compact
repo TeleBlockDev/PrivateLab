@@ -2,8 +2,11 @@ pragma language_version 0.26;
 
 import CompactStandardLibrary;
 
+witness getHemoglobin(): Uint<16>;
+
 export ledger verified: Boolean;
 
-export circuit verifyHemoglobin(hemoglobin: Uint<16>, minimum: Uint<16>): [] {
+export circuit verifyHemoglobin(minimum: Uint<16>): [] {
+  const hemoglobin = getHemoglobin();
   verified = disclose(hemoglobin >= minimum);
 }
