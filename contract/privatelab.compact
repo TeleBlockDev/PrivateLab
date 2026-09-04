@@ -1,0 +1,9 @@
+pragma language_version 0.26;
+
+import CompactStandardLibrary;
+
+export ledger verified: Boolean;
+
+export circuit verifyHemoglobin(hemoglobin: Uint<16>, minimum: Uint<16>): [] {
+  verified = disclose(hemoglobin >= minimum);
+}

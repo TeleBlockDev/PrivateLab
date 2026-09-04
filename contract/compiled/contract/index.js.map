@@ -1,0 +1,8 @@
+{
+  "version": 3,
+  "file": "index.js",
+  "sourceRoot": "../../../",
+  "sources": ["contract/privatelab.compact"],
+  "names": [],
+  "mappings": ";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;EAAA;;;;;;;;;;MAMA,AAAA,gBAEC;;;;;cAF+B,YAAoB;cAAE,SAAiB;;;;;;;;;;;;;;;;;;;;;;;;;yCAAvC,YAAoB,+BAAE,SAAiB;;;;;;;;;wDAAvC,YAAoB;wDAAE,SAAiB;;;;OAEtE;;;;;;GACA;EATD;;;;;;;;;;;;;;;;;;;;;;;;;;IAIA;;;;;;;;;yEAAgC;;;;;;;GAK/B;EAHD,AAAA,yBAEC,4BAF+B,YAAoB,EAAE,SAAiB;;UACrE,KAAQ,GAAY,YAAU,IAAI,SAAO;IAAzC;;;;;;;2HAAA,KAAQ;;yEAAA;;GACT;;;;;;;;;;;;;;;;IAJD;qCAAA;;;;;;;;;;;0GAAgC;KAAA;;;;;;;;;;;;;;"
+}
