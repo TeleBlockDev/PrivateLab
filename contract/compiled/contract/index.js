@@ -1,5 +1,5 @@
 import * as __compactRuntime from '@midnight-ntwrk/compact-runtime';
-__compactRuntime.checkRuntimeVersion('0.19.0');
+__compactRuntime.checkRuntimeVersion('0.16.0');
 
 const _descriptor_0 = new __compactRuntime.CompactTypeUnsignedInteger(65535n, 2);
 
@@ -47,8 +47,6 @@ const _descriptor_6 = new _ContractAddress_0();
 
 const _descriptor_7 = new __compactRuntime.CompactTypeUnsignedInteger(255n, 1);
 
-const _descriptor_8 = new __compactRuntime.CompactTypeUnsignedInteger(4294967295n, 4);
-
 export class Contract {
   witnesses;
   constructor(...args_0) {
@@ -64,13 +62,13 @@ export class Contract {
     }
     this.witnesses = witnesses_0;
     this.circuits = {
-      verifyHemoglobin: async (...args_1) => {
+      verifyHemoglobin: (...args_1) => {
         if (args_1.length !== 2) {
           throw new __compactRuntime.CompactError(`verifyHemoglobin: expected 2 arguments (as invoked from Typescript), received ${args_1.length}`);
         }
         const contextOrig_0 = args_1[0];
         const minimum_0 = args_1[1];
-        if (!(typeof(contextOrig_0) === 'object' && contextOrig_0.callContext.currentQueryContext != undefined)) {
+        if (!(typeof(contextOrig_0) === 'object' && contextOrig_0.currentQueryContext != undefined)) {
           __compactRuntime.typeError('verifyHemoglobin',
                                      'argument 1 (as invoked from Typescript)',
                                      'privatelab.compact line 9 char 1',
@@ -84,7 +82,7 @@ export class Contract {
                                      'Uint<0..65536>',
                                      minimum_0)
         }
-        const context = __compactRuntime.copyCircuitContext(contextOrig_0);
+        const context = { ...contextOrig_0, gasCost: __compactRuntime.emptyRunningCost() };
         const partialProofData = {
           input: {
             value: _descriptor_0.toValue(minimum_0),
@@ -94,12 +92,11 @@ export class Contract {
           publicTranscript: [],
           privateTranscriptOutputs: []
         };
-        const result_0 = await this._verifyHemoglobin_0(context,
-                                                        partialProofData,
-                                                        minimum_0);
+        const result_0 = this._verifyHemoglobin_0(context,
+                                                  partialProofData,
+                                                  minimum_0);
         partialProofData.output = { value: [], alignment: [] };
-        __compactRuntime.finalizeCallProofData(context, partialProofData);
-        return { result: result_0, context: context, gasCost: context.callContext.currentGasCost };
+        return { result: result_0, context: context, proofData: partialProofData, gasCost: context.gasCost };
       }
     };
     this.impureCircuits = { verifyHemoglobin: this.circuits.verifyHemoglobin };
@@ -107,7 +104,7 @@ export class Contract {
       verifyHemoglobin: this.circuits.verifyHemoglobin
     };
   }
-  async initialState(...args_0) {
+  initialState(...args_0) {
     if (args_0.length !== 1) {
       throw new __compactRuntime.CompactError(`Contract state constructor: expected 1 argument (as invoked from Typescript), received ${args_0.length}`);
     }
@@ -129,7 +126,7 @@ export class Contract {
     stateValue_0 = stateValue_0.arrayPush(__compactRuntime.StateValue.newNull());
     state_0.data = new __compactRuntime.ChargedState(stateValue_0);
     state_0.setOperation('verifyHemoglobin', new __compactRuntime.ContractOperation());
-    const context = __compactRuntime.createCircuitContext('constructor', __compactRuntime.dummyContractAddress(), constructorContext_0.initialZswapLocalState.coinPublicKey, state_0.data, constructorContext_0.initialPrivateState);
+    const context = __compactRuntime.createCircuitContext(__compactRuntime.dummyContractAddress(), constructorContext_0.initialZswapLocalState.coinPublicKey, state_0.data, constructorContext_0.initialPrivateState);
     const partialProofData = {
       input: { value: [], alignment: [] },
       output: undefined,
@@ -146,17 +143,17 @@ export class Contract {
                                                  value: __compactRuntime.StateValue.newCell({ value: _descriptor_1.toValue(false),
                                                                                               alignment: _descriptor_1.alignment() }).encode() } },
                                        { ins: { cached: false, n: 1 } }]);
-    state_0.data = new __compactRuntime.ChargedState(context.callContext.currentQueryContext.state.state);
+    state_0.data = new __compactRuntime.ChargedState(context.currentQueryContext.state.state);
     return {
       currentContractState: state_0,
-      currentPrivateState: context.callContext.currentPrivateState,
-      currentZswapLocalState: context.callContext.currentZswapLocalState
+      currentPrivateState: context.currentPrivateState,
+      currentZswapLocalState: context.currentZswapLocalState
     }
   }
   _getHemoglobin_0(context, partialProofData) {
-    const witnessContext_0 = __compactRuntime.createWitnessContext(ledger(context.callContext.currentQueryContext.state), context.callContext.currentPrivateState, context.callContext.currentQueryContext.address);
+    const witnessContext_0 = __compactRuntime.createWitnessContext(ledger(context.currentQueryContext.state), context.currentPrivateState, context.currentQueryContext.address);
     const [nextPrivateState_0, result_0] = this.witnesses.getHemoglobin(witnessContext_0);
-    context.callContext.currentPrivateState = nextPrivateState_0;
+    context.currentPrivateState = nextPrivateState_0;
     if (!(typeof(result_0) === 'bigint' && result_0 >= 0n && result_0 <= 65535n)) {
       __compactRuntime.typeError('getHemoglobin',
                                  'return value',
@@ -170,7 +167,7 @@ export class Contract {
     });
     return result_0;
   }
-  async _verifyHemoglobin_0(context, partialProofData, minimum_0) {
+  _verifyHemoglobin_0(context, partialProofData, minimum_0) {
     const hemoglobin_0 = this._getHemoglobin_0(context, partialProofData);
     const tmp_0 = hemoglobin_0 >= minimum_0;
     __compactRuntime.queryLedgerState(context,
@@ -190,7 +187,7 @@ export function ledger(stateOrChargedState) {
   const state = stateOrChargedState instanceof __compactRuntime.StateValue ? stateOrChargedState : stateOrChargedState.state;
   const chargedState = stateOrChargedState instanceof __compactRuntime.StateValue ? new __compactRuntime.ChargedState(stateOrChargedState) : stateOrChargedState;
   const context = {
-    callContext: { currentQueryContext: new __compactRuntime.QueryContext(chargedState, __compactRuntime.dummyContractAddress()), currentGasCost: __compactRuntime.emptyRunningCost() },
+    currentQueryContext: new __compactRuntime.QueryContext(chargedState, __compactRuntime.dummyContractAddress()),
     costModel: __compactRuntime.CostModel.initialCostModel()
   };
   const partialProofData = {
@@ -217,14 +214,10 @@ export function ledger(stateOrChargedState) {
   };
 }
 const _emptyContext = {
-  callContext: { currentQueryContext: new __compactRuntime.QueryContext(new __compactRuntime.ContractState().data, __compactRuntime.dummyContractAddress()), currentGasCost: __compactRuntime.emptyRunningCost() }
+  currentQueryContext: new __compactRuntime.QueryContext(new __compactRuntime.ContractState().data, __compactRuntime.dummyContractAddress())
 };
 const _dummyContract = new Contract({ getHemoglobin: (...args) => undefined });
 export const pureCircuits = {};
 export const contractReferenceLocations =
   { tag: 'publicLedgerArray', indices: { } };
-export const expectedVk = {
-  'verifyHemoglobin': '78ef6e69540b47e3a255ba08519a0422738b24d2352075106bc318dd74135591',
-};
-
 //# sourceMappingURL=index.js.map

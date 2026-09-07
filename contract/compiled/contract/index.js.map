@@ -4,5 +4,5 @@
   "sourceRoot": "../../../",
   "sources": ["contract/privatelab.compact"],
   "names": [],
-  "mappings": ";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;EAAA;;;;;;;;;;;;;MAQA,AAAA,gBAGC;;;;;cAH+B,SAAiB;;;;;;;;;;;;;;;;;;yCAAjB,SAAiB;;;;;;;;;wDAAjB,SAAiB;;;;OAGhD;;;;;;GACA;EAZD;;;;;;;;;;;;;;;;;;;;;;;;;;;;;IAMA;;;;;;;;;yEAAgC;;;;;;;GAM/B;EARD,AAAA,gBAAkC;;0DAAlC,aAAkC;;;;;;;;;;;;;;GAAA;EAIlC,AAAA,yBAGC,4BAH+B,SAAiB;UACzC,YAA4B;UAClC,KAAQ,GAAY,YAAU,IAAI,SAAO;IAAzC;;;;;;;2HAAA,KAAQ;;yEAAA;;GACT;;;;;;;;;;;;;;;;IALD;qCAAA;;;;;;;;;;;0GAAgC;KAAA;;;;;;;;;;;;;;"
+  "mappings": ";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;EAAA;;;;;;;;;;;;;MAQA,AAAA,gBAGC;;;;;cAH+B,SAAiB;;;;;;;;;;;;;;;;;;yCAAjB,SAAiB;;;;;;;;;kDAAjB,SAAiB;;;OAGhD;;;;;;GACA;EAZD;;;;;;;;;;;;;;;;;;;;;;;;;;;;;IAMA;;;;;;;;;yEAAgC;;;;;;;GAM/B;EARD,AAAA,gBAAkC;;0DAAlC,aAAkC;;;;;;;;;;;;;;GAAA;EAIlC,AAAA,mBAGC,4BAH+B,SAAiB;UACzC,YAA4B;UAClC,KAAQ,GAAY,YAAU,IAAI,SAAO;IAAzC;;;;;;;2HAAA,KAAQ;;yEAAA;;GACT;;;;;;;;;;;;;;;;IALD;qCAAA;;;;;;;;;;;0GAAgC;KAAA;;;;;;;;;;"
 }

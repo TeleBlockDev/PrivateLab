@@ -1,0 +1,8 @@
+{
+  "name": "privatelab-contract",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "@midnight-ntwrk/compact-runtime": "0.16.0"
+  }
+}
