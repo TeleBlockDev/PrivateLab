@@ -1,34 +1,33 @@
-# PrivateLab
+<div align="center">
 
-**Privacy-preserving laboratory result verification powered by Midnight.**
+# 🧪 PrivateLab
 
-PrivateLab is a Wave 1 prototype that demonstrates how a patient can verify that a laboratory result meets a required condition without unnecessarily revealing the underlying medical value.
+## Privacy-Preserving Laboratory Result Verification
 
-## Wave 1
+**Verify whether a laboratory result meets a required condition without revealing the underlying private value.**
 
-The first implementation focuses on one laboratory parameter:
+[![Built with Midnight](https://img.shields.io/badge/Built%20with-Midnight-6C63FF?style=for-the-badge)](https://midnight.network/)
+[![Compact](https://img.shields.io/badge/Compact-0.31.1-blue?style=for-the-badge)](https://docs.midnight.network/)
+[![License](https://img.shields.io/badge/License-Apache--2.0-green?style=for-the-badge)](LICENSE)
+[![Wave 1](https://img.shields.io/badge/Buildathon-Wave%201-blue?style=for-the-badge)](https://akindo.io/)
 
-- Hemoglobin
-- A minimum required value
-- Privacy-preserving verification
+</div>
 
-The Compact contract contains the verification circuit:
+---
 
-`verifyHemoglobin`
+## 🧬 Overview
 
-The intended result is to reveal only whether the requirement is satisfied, rather than exposing the patient's actual hemoglobin value.
+**PrivateLab** is a privacy-preserving laboratory result verification prototype powered by **Midnight**.
 
-## Technology
+For Wave 1, PrivateLab focuses on one laboratory parameter:
 
-- Midnight Compact
-- Compact compiler 0.34.0
-- Compact language 0.26.0
-- Compact runtime 0.19.0
+### Hemoglobin
 
-## Status
+Example:
 
-Wave 1 development in progress.
+- Private value: `13.2 g/dL`
+- Required minimum: `12.0 g/dL`
+- Verification result: **PASS**
+- The verifier does not need to receive the actual `13.2 g/dL` value.
 
-## License
-
-Apache License 2.0
+---
