@@ -1,5 +1,5 @@
 import type { WitnessContext } from '@midnight-ntwrk/compact-runtime';
-import type { Ledger, Witnesses } from '../../contract/compiled/contract/index.js';
+import type { Ledger, Witnesses } from './managed/PrivateLab/contract/index.js';
 
 export type PrivateLabPrivateState = {
   hemoglobin: bigint;

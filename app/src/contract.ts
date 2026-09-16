@@ -1,5 +1,5 @@
 import { CompiledContract } from "@midnight-ntwrk/midnight-js-protocol/compact-js";
-import { Contract } from "../../contract/compiled/contract/index.js";
+import { Contract } from "./managed/PrivateLab/contract/index.js";
 import { createPrivateLabWitnesses } from "./witnesses.js";
 
 export const privateLabContract = (
